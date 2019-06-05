@@ -6,6 +6,14 @@ pub trait HelloMacro {
 mod tests {
     #[test]
     fn it_works() {
-        assert_eq!(2 + 2, 4);
+        use crate::HelloMacro;
+        use hello_macro_derive::HelloMacro;
+
+        #[derive(HelloMacro)]
+        struct Pancakes;
+
+        fn main() {
+            Pancakes::hello_macro();
+        }
     }
 }
