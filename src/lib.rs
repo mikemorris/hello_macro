@@ -5,15 +5,19 @@ pub trait HelloMacro {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn it_works() {
+    fn can_derive() {
         use crate::HelloMacro;
         use hello_macro_derive::HelloMacro;
 
         #[derive(HelloMacro)]
         struct Pancakes;
 
-        fn main() {
-            Pancakes::hello_macro();
-        }
+        Pancakes::hello_macro();
+    }
+
+    #[test]
+    #[ignore]
+    fn prints_name() {
+        // assert that printed name matches expected
     }
 }
